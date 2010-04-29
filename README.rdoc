@@ -15,7 +15,7 @@ Use
 	
 == Description
 
-Never mess with updating the version for your next gem build.  Configured in your Rakefile, gem_version automatically provides the next version and commits it to the repository.
+Never bother updating the version for your next gem build by hand.  Configured in your Rakefile, gem_version automatically provides the next version and commits it to the repository.
 
 == Use
 

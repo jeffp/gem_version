@@ -10,8 +10,8 @@ spec = Gem::Specification.new do |s|
   s.version = GemVersion.next_version
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = '>= 1.8.6'
-  s.description = 'Gem version management for Gem builds'
-  s.summary = 'No need to update the gem version for your builds by hand.  Gem version manages it for you.'
+  s.description = 'Automated version management for your Gem builds'
+  s.summary = 'Never bother updating the version for your next gem build by hand.  Configured in your Rakefile, gem_version provides the next Gem version and stores it to the repository.'
 
   s.add_dependency('git', '>= 1.2.5')  
   
