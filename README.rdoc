@@ -1,12 +1,12 @@
 = gem_version
 
-Simple automatic gem version manager for your gem rake build environment.
+Automated version management for your Gem builds.
 
 == Resources
 
 Install
 
-* sudo gem gem_version
+* sudo gem install gem_version
 
 Use
 
@@ -15,16 +15,22 @@ Use
 	
 == Description
 
-Never worry about updating your gem version for the next gem build.  When configured in your Rakefile, gem_version automatically provides the next gem version and commits it to your git repository. 
+Never mess with updating the version for your next gem build.  Configured in your Rakefile, gem_version automatically provides the next version and commits it to the repository.
 
-Get the next version in your gem_spec like this:
+== Use
+
+Require the library in your Rakefile:
+
+  require 'gem_version'
+
+Use gem_version in your Gem Specification:
 
   spec = Gem::Specification.new do |s|
     s.version = GemVersion.next_version
     ...
   end
 
-Increment and commit the gem version in your :gemspec rake task like this:
+Increment and commit the gem version in your Gemspec rake task:
 
   desc 'Generate a gemspec file.'
   task :gemspec do
@@ -35,12 +41,12 @@ Increment and commit the gem version in your :gemspec rake task like this:
     GemVersion.commit_and_push
   end
 
-Build your gem like this (this example uses Gemcutter):
+Everytime you build your gem (this example uses Gemcutter):
 
   rake gemspec
   gem build YourGemName-0.0.1.gemspec
 
-Gem version provides the next version for each build.
+gem_version provides the next version for each build.
 
 
 == Bumping or resetting the next gem version
