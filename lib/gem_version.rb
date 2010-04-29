@@ -36,8 +36,8 @@ module GemVersion
     version
   end
 
-  def self.commit_and_push(msg = nil)
-    g=Git.open(File.dirname(__FILE__), :log=>Logger.new(STDOUT))
+  def self.commit_and_push(project_directory = nil, msg = nil)
+    g=Git.open(project_directory || Dir.pwd, :log=>Logger.new(STDOUT))
     g.add(@@gem_version_file)
     g.commit(msg || @@default_commit_message)
     g.push

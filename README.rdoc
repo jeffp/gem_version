@@ -44,7 +44,7 @@ Increment and commit the gem version in your Gemspec rake task:
 Everytime you build your gem (this example uses Gemcutter):
 
   rake gemspec
-  gem build YourGemName-0.0.1.gemspec
+  gem build your_gem_name.gemspec
 
 gem_version provides the next version for each build.
 
