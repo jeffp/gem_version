@@ -2,7 +2,7 @@ require 'rubygems'
 require 'git'
 require 'logger'
 
-load 'lib/tasks/gem_version.rake'
+load File.dirname(__FILE__) + '/tasks/gem_version.rake'
 
 
 module GemVersion
