@@ -14,9 +14,18 @@ module GemVersion
     init_version_file unless File.exist?(@@gem_version_file)
     file = File.new(@@gem_version_file, 'r')
     version = file.gets.chomp
-    raise "#{@@gem_version_file} file corrupt" unless (version && version =~ /^\d+\.\d+[\.\d+]+$/)
+    raise "#{@@gem_version_file} file corrupt" unless self.version_format_valid?(version)
     file.close
     version
+  end
+
+  def self.set_version(version)
+    raise "Invalid version format" unless self.version_format_valid?(version)
+    update_version(version)
+  end
+  
+  def self.version_format_valid?(version)
+    (version && version =~ /^\d+\.\d+[\.\d+]+$/)
   end
 
   def self.init_version_file
@@ -25,15 +34,24 @@ module GemVersion
     file.close
   end
 
+  def self.increment_and_push
+    self.increment_version
+    self.commit_and_push
+  end
+
   def self.increment_version
     version = self.next_version
     components = version.split('.')
     components.push((components.pop.to_i + 1).to_s)
     new_version = components.join('.')
+    update_version(new_version)
+    version
+  end
+
+  def self.update_version(new_version)
     file = File.new(@@gem_version_file, 'w')
     file.puts new_version
-    file.close
-    version
+    file.close    
   end
 
   def self.commit_and_push(project_directory = nil, msg = nil)

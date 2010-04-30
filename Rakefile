@@ -65,3 +65,4 @@ Rake::GemPackageTask.new(spec) do |p|
 end
 
 Dir['tasks/**/*.rake'].each {|rake| load rake}
+Dir['lib/tasks/**/*.rake'].each {|rake| load rake}
