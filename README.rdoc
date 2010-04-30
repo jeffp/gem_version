@@ -48,7 +48,7 @@ Everytime you build your gem (this example uses Gemcutter):
 
 GemVersion provides the next version for each build.
 
-See my messy Rakefile[http://github.com/jeffp/gem_version/blob/master/Rakefile] as an example.
+See my Rakefile[http://github.com/jeffp/gem_version/blob/master/Rakefile] for an example.
 
 == Bumping or resetting the next gem version
 
