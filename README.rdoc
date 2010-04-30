@@ -52,9 +52,26 @@ See my Rakefile[http://github.com/jeffp/gem_version/blob/master/Rakefile] for an
 
 == Bumping or resetting the next gem version
 
-GemVersion creates a file named 'next_gem_version' in the root directory of your project which contains the 'next' gem version.  Edit the version in this file to bump or reset the version for the next build.
+GemVersion creates a file named 'next_gem_version' in the root directory of your project which contains the 'next' gem version.  Edit the version in this file or use the rake tasks to bump or set the version for the next build.
 
-GemVersion increments the last component of your version.  If you need to bump from 0.1.x to 0.2.x, you'll need to make the change in the file.
+GemVersion increments the last component of your version.  If you need to bump from 0.1.x to 0.2.x, you'll need to bump the version manually.
+
+== Rake tasks
+
+Two rake tasks gem:clean and gem:version are available whenever you require gem_version.
+
+* Clean the project root of .gem and .gemspec files.
+
+  rake gem:clean
+
+* Get the next gem version
+
+  rake gem:version
+
+* Set the next gem version
+
+  rake gem:version set=0.1.0
+
 
 == Dependencies
 
