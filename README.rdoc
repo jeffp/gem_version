@@ -1,4 +1,4 @@
-= gem_version
+= GemVersion
 
 Automated version management for your Gem builds.
 
@@ -46,13 +46,15 @@ Everytime you build your gem (this example uses Gemcutter):
   rake gemspec
   gem build your_gem_name.gemspec
 
-gem_version provides the next version for each build.
+GemVersion provides the next version for each build.
 
+See my messy Rakefile[http://github.com/jeffp/gem_version/blob/master/Rakefile] as an example.
 
 == Bumping or resetting the next gem version
 
-Gem version creates a file named 'next_gem_version' in the root directory of your project which contains the 'next' gem version.  Edit the version in this file to bump or reset the version for the next build.
+GemVersion creates a file named 'next_gem_version' in the root directory of your project which contains the 'next' gem version.  Edit the version in this file to bump or reset the version for the next build.
 
+GemVersion increments the last component of your version.  If you need to bump from 0.1.x to 0.2.x, you'll need to make the change in the file.
 
 == Dependencies
 
