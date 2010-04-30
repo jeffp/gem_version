@@ -1,5 +1,8 @@
 
 namespace :gem do
+  task :clean do
+    FileUtils.rm_f Dir.glob('*.gem*')
+  end
   task :version do
     if (ENV.include?("set"))
       version = ENV['set'].gsub(/'/, '')

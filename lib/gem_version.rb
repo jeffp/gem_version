@@ -2,6 +2,9 @@ require 'rubygems'
 require 'git'
 require 'logger'
 
+load 'lib/tasks/gem_version.rake'
+
+
 module GemVersion
   @@gem_version_file = 'next_gem_version'
   @@default_commit_message = 'incremented gem version'
