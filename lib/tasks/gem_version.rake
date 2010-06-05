@@ -1,8 +1,11 @@
 
 namespace :gem do
+  desc "Clean *.gem* files from project root"
   task :clean do
     FileUtils.rm_f Dir.glob('*.gem*')
   end
+
+  desc "Return and set next gem version"
   task :version do
     if (ENV.include?("set"))
       version = ENV['set'].gsub(/'/, '')

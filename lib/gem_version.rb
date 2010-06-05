@@ -57,9 +57,10 @@ module GemVersion
     file.close    
   end
 
-  def self.commit_and_push(project_directory = nil, msg = nil)
+  def self.commit_and_push(project_directory = nil, msg = nil, &block)
     g=Git.open(project_directory || Dir.pwd, :log=>Logger.new(STDOUT))
     g.add(@@gem_version_file)
+    yield(g) if block_given?
     g.commit(msg || @@default_commit_message)
     g.push
   end

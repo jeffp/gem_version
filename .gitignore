@@ -1,10 +1,8 @@
 .DS_Store
+.idea
 pkg
 nbproject
-arspy*.gem
-arspy*.gemspec
 TODO.txt
 spec/next_gem_version
-*.gemspec
 *.gem
 
