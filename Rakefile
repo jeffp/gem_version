@@ -56,7 +56,7 @@ task :gemspec do
   end
   GemVersion.increment_version
   GemVersion.commit_and_push do |git| 
-    git.add('*.gemspec')
+    git.add("#{spec.name}.gemspec")
   end
 end
  
