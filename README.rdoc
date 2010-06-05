@@ -50,6 +50,21 @@ GemVersion provides the next version for each build.
 
 See my Rakefile[http://github.com/jeffp/gem_version/blob/master/Rakefile] for an example.
 
+== Adding other files
+
+To add other files to the GemVersion.commit_and_push method use the block.  For instance,
+if you want to commit and push the gemspec file also:
+
+  task :gemspec do
+    File.open("#{spec.name}.gemspec", 'w') do |f|
+      f.write spec.to_ruby
+    end
+    GemVersion.increment_version
+    GemVersion.commit_and_push do |git|
+      git.add("#{spec.name}.gemspec")
+    end
+  end
+
 == Bumping or resetting the next gem version
 
 GemVersion creates a file named 'next_gem_version' in the root directory of your project which contains the 'next' gem version.  Edit the version in this file or use the rake tasks to bump or set the version for the next build.
