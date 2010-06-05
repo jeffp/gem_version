@@ -55,7 +55,9 @@ task :gemspec do
     f.write spec.to_ruby
   end
   GemVersion.increment_version
-  GemVersion.commit_and_push
+  GemVersion.commit_and_push do |git| 
+    git.add('*.gemspec')
+  end
 end
  
 Rake::GemPackageTask.new(spec) do |p|
